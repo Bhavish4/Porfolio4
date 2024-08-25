@@ -7,6 +7,18 @@
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background-color: rgba(255, 255, 255, 5.96);
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: rgb(255, 3, 3);
+}
+
 body {
   width: 100%;
   height: 100vh;
@@ -108,7 +120,7 @@ section {
   min-height: 100vh;
 }
 
-/* Home Section */
+/* -------------------------------------------------------Home Section------------------------------------------------------- */
 #home {
   background-color: black;
   padding: 100px;
@@ -226,7 +238,7 @@ section {
   }
 }
 
-/* About Section */
+/* ---------------------------------------------------------About Section------------------------------------------------------- */
 #about {
   width: 100%;
   min-height: 100vh;
@@ -245,43 +257,44 @@ section {
   z-index: 2;
   max-width: 1800px; /* Increase the max-width to make the about section wider */
   width: 100%;
-  padding: 100px;
+  padding: 50px;
   background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background for content */
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about-content:hover {
+/* .about-content:hover {
   transform: translateY(-10px);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-}
+} */
 
 /* Increase font size for the about text */
 .about-content p {
-  font-size: 1.2rem; /* Adjusted font size */
+  font-size: 1rem; /* Adjusted font size */
 }
 
 .service-title {
   margin-top: 60px;
   margin-bottom: 30px;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
   color: #fff;
 }
 
 .service-tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
 }
 
 .service-item {
   background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
 }
 
 .service-item:hover {
@@ -309,7 +322,7 @@ section {
   color: #ccc;
 }
 
-/* Skills Section */
+/* -----------------------------------------------------Skills Section----------------------------------------------------- */
 #skills {
   background: black;
   padding: 60px 0;
@@ -429,18 +442,6 @@ section {
   }
 }
 
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  .skills-container {
-    grid-template-columns: repeat(2, 1fr); /* Adjust to 2 skills per row on medium screens */
-  }
-}
-
-@media (max-width: 576px) {
-  .skills-container {
-    grid-template-columns: 1fr; /* Adjust to 1 skill per row on small screens */
-  }
-}
 
 /* Example skill level percentages (adjust accordingly) */
 .skill[data-skill="html"] .progress-bar span {
@@ -463,7 +464,11 @@ section {
   width: 70%;
 }
 
-/* Education Section */
+.skill[data-skill="MySQL"] .progress-bar span {
+  width: 60%;
+}
+
+/* --------------------------------------------------------Education Section---------------------------------------------- */
 #education {
   background-color: #000000; /* Set the background to black */
   padding: 60px 20px;
@@ -609,40 +614,7 @@ section {
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .timeline {
-    padding-left: 20px;
-  }
-
-  .timeline-item {
-    flex-direction: column;
-  }
-
-  .timeline-content {
-    transform: none;
-  }
-
-  .timeline-item:hover .timeline-content {
-    transform: none;
-    box-shadow: none;
-  }
-
-  .timeline:before {
-    left: 20px;
-    transform: translateX(0);
-  }
-
-  .timeline-item:nth-child(odd) .timeline-content {
-    margin-left: 0;
-  }
-
-  .timeline-item:nth-child(even) .timeline-content {
-    margin-right: 0;
-  }
-}
-
-/* CONTACT */
+/* -------------------------------------------------------CONTACT------------------------------------------------------ */
 
 #contact {
   width: 100%;
@@ -802,9 +774,6 @@ section {
   }
 }
 
-
-
-
 /* Animations */
 @keyframes fadeIn {
   from {
@@ -831,7 +800,7 @@ section {
   }
 }
 
-
+/*-------------------------------------------------------HOME-------------------------------------------------*/
 
 /* Responsive Adjustments */
 @media (max-width: 884px) {
@@ -884,5 +853,333 @@ section {
 
   .main-container button {
     margin-top: 15px;
+  }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr); /* Adjust to 2 skills per row on medium screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .skills-container {
+    grid-template-columns: 1fr; /* Adjust to 1 skill per row on small screens */
+  }
+}
+
+/*----------------------------------------------------ABOUT-------------------------------------------------*/
+
+/* Media Query for Tablets (576px and up) */
+@media (min-width: 576px) {
+  .about-content {
+    padding: 60px;
+  }
+
+  .about-content p {
+    font-size: 1.1rem; /* Adjust font size for tablets */
+  }
+
+  .service-title {
+    font-size: 2.2rem; /* Adjust font size for tablets */
+  }
+
+  .service-item {
+    padding: 25px;
+    margin-bottom: 25px; /* Space between items */
+  }
+
+  .service-tiles {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    gap: 20px;
+  }
+}
+
+/* Media Query for Medium Devices (768px and up) */
+@media (min-width: 768px) {
+  .about-content {
+    padding: 70px;
+  }
+
+  .about-content p {
+    font-size: 1.2rem; /* Adjust font size for medium devices */
+  }
+
+  .service-title {
+    font-size: 2.4rem; /* Adjust font size for medium devices */
+  }
+
+  .service-item {
+    padding: 30px;
+  }
+
+  .service-tiles {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for medium devices */
+    gap: 20px;
+  }
+}
+
+/* Media Query for Large Devices (992px and up) */
+@media (min-width: 992px) {
+  .about-content {
+    padding: 80px;
+  }
+
+  .about-content p {
+    font-size: 1.3rem; /* Adjust font size for large devices */
+  }
+
+  .service-title {
+    font-size: 2.6rem; /* Adjust font size for large devices */
+  }
+
+  .service-item {
+    padding: 35px;
+  }
+
+  .service-tiles {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for large devices */
+    gap: 20px;
+  }
+}
+
+/* Media Query for Extra Large Devices (1200px and up) */
+@media (min-width: 1200px) {
+  .about-content {
+    padding: 90px;
+  }
+
+  .about-content p {
+    font-size: 1.4rem; /* Adjust font size for extra large devices */
+  }
+
+  .service-title {
+    font-size: 2.8rem; /* Adjust font size for extra large devices */
+  }
+
+  .service-item {
+    padding: 40px;
+  }
+
+  .service-tiles {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for extra large devices */
+    gap: 25px;
+  }
+}
+
+/* Media Query for Extra Extra Large Devices (1400px and up) */
+@media (min-width: 1400px) {
+  .about-content {
+    padding: 100px;
+  }
+
+  .about-content p {
+    font-size: 1.5rem; /* Adjust font size for extra extra large devices */
+  }
+
+  .service-title {
+    font-size: 3rem; /* Adjust font size for extra extra large devices */
+  }
+
+  .service-item {
+    padding: 45px;
+  }
+
+  .service-tiles {
+    grid-template-columns: repeat(4, 1fr); /* Four columns for extra extra large devices */
+    gap: 30px;
+  }
+}
+
+/*--------------------------------------------------SKILLS--------------------------------------------------*/
+
+/* Tablets and below */
+@media (max-width: 992px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 skills per row */
+  }
+
+  .skill-info h4 {
+    font-size: 1.5rem;
+  }
+
+  .skill-info p {
+    font-size: 0.9rem;
+  }
+
+  .skill-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile and below */
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr; /* 1 skill per row */
+  }
+
+  .skill {
+    padding: 20px;
+  }
+
+  #skills {
+    padding: 40px 0;
+  }
+
+  #skills h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .skill-info h4 {
+    font-size: 1.3rem;
+  }
+
+  .skill-info p {
+    font-size: 0.8rem;
+  }
+
+  .skill-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .skill {
+    padding: 15px;
+  }
+
+  .skill-info h4 {
+    font-size: 1.2rem;
+  }
+
+  .skill-info p {
+    font-size: 0.75rem;
+  }
+
+  .skill-icon {
+    font-size: 1.8rem;
+    margin-right: 10px;
+  }
+}
+
+/*-----------------------------------------EDUCATION------------------------------------------*/
+
+/* Media Queries for different screen sizes */
+
+/* Large devices (Desktops, laptops, large tablets in landscape mode) */
+@media (max-width: 1200px) {
+  #education h1 {
+    font-size: 2.5rem;
+  }
+
+  .timeline-item {
+    margin-bottom: 30px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Medium devices (Tablets, small laptops) */
+@media (max-width: 992px) {
+  #education h1 {
+    font-size: 2.2rem;
+  }
+
+  .timeline-content {
+    padding: 15px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .timeline-icon {
+    margin-bottom: 20px;
+  }
+
+  .timeline-content {
+    transform: perspective(500px) rotateX(0);
+  }
+
+  .timeline:before {
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 4px;
+    transform: translateY(-50%);
+    background: linear-gradient(90deg, white, #d30303);
+  }
+}
+
+/* Small devices (Smartphones, small tablets) */
+@media (max-width: 768px) {
+  #education h1 {
+    font-size: 2rem;
+  }
+
+  .timeline-content {
+    padding: 15px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .timeline-item {
+    margin-bottom: 20px;
+  }
+
+  .timeline-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small devices (very small smartphones) */
+@media (max-width: 576px) {
+  #education h1 {
+    font-size: 1.8rem;
+  }
+
+  .timeline-item {
+    margin-bottom: 20px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.8rem;
+  }
+
+  .timeline-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .timeline:before {
+    width: 2px;
   }
 }
