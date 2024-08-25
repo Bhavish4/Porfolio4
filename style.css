@@ -283,14 +283,16 @@ section {
 }
 
 .service-tiles {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  justify-content: space-between; /* Spreads items across the row */
   gap: 20px;
+  flex-wrap: nowrap; /* Prevents wrapping */
 }
 
 .service-item {
-  background: rgba(255, 255, 255, 0.1);
+  flex: 1; /* Make all items take up equal space */
   padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -936,12 +938,12 @@ section {
   }
 
   .service-item {
-    padding: 35px;
+    flex: 1 1 30%; /* Each item takes up 30% of the row width */
   }
 
   .service-tiles {
-    grid-template-columns: repeat(3, 1fr); /* Three columns for large devices */
-    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Prevent wrapping */
   }
 }
 
@@ -960,7 +962,7 @@ section {
   }
 
   .service-item {
-    padding: 40px;
+    flex: 1 1 22%; /* Adjust to fit four items in the row */
   }
 
   .service-tiles {
@@ -1011,6 +1013,13 @@ section {
 
   .skill-icon {
     font-size: 2.5rem;
+  }
+
+  .service-tiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
   }
 }
 
