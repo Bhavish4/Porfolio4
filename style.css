@@ -621,7 +621,7 @@ section {
 #contact {
   width: 100%;
   min-height: 100vh;
-  background: black; /* Set background to black */
+  background: black;
   color: white;
   display: flex;
   align-items: center;
@@ -666,32 +666,31 @@ section {
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 40px; /* Increased gap between form elements */
+  gap: 30px;
   animation: fadeInUp 2s ease-in-out;
 }
 
 .input-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 30px; /* Increased gap between inputs */
+  gap: 20px;
 }
 
 .form-input {
   width: 100%;
-  padding: 20px;
+  padding: 15px;
   border: none;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   color: white;
   font-size: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease background 0.3s ease, height 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   text-align: center;
 }
 
 .form-input[name="message"] {
-  margin-bottom: 20px; /* Increase this value to create more space below the "Your Message" input */
-  padding: 60px; /* This controls the inner space (padding) of the "Your Message" input box */
-  text-align: center;
+  height: 150px;
+  resize: none;
 }
 
 .form-input::placeholder {
@@ -709,6 +708,7 @@ section {
 
 .form-btn {
   padding: 15px;
+  margin-top: 20px;
   border-radius: 8px;
   border: none;
   background: linear-gradient(135deg, rgb(255, 3, 3), rgb(255, 3, 3));
@@ -725,8 +725,20 @@ section {
   box-shadow: 0 0 15px white;
 }
 
+.hidden {
+  display: none;
+}
+
+#formSuccessMessage {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: green;
+  animation: fadeIn 1s ease-in-out;
+}
+
+
 .social-icons {
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -742,6 +754,21 @@ section {
 .social-icons a:hover {
   color: rgb(211, 3, 3);
   transform: scale(1.2);
+}
+
+.contact-footer {
+  width: 100%;
+  margin-top: 10px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Add a subtle border */
+}
+
+.contact-footer p {
+  margin: 0;
 }
 
 /* Keyframes for Animations */
@@ -764,41 +791,6 @@ section {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  #contact .contact-content {
-    padding: 20px;
-  }
-
-  .contact-form {
-    gap: 15px;
-  }
-
-  .social-icons a {
-    font-size: 1.2rem;
   }
 }
 
@@ -1190,5 +1182,171 @@ section {
 
   .timeline:before {
     width: 2px;
+  }
+}
+
+/*----------------------------------------------------CONTACT----------------------------------------------------*/
+
+/* Base styling for small screens (mobile devices) */
+@media (max-width: 600px) {
+  #contact {
+    padding: 20px 5px;
+  }
+
+  #contact .contact-content {
+    padding: 20px;
+    box-shadow: 0 0 20px black;
+  }
+
+  #contact .contact-content h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
+
+  #contact .contact-content p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .form-input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .form-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .social-icons a {
+    font-size: 1.5rem;
+  }
+
+  .contact-footer p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 900px) {
+  #contact {
+    padding: 25px 10px;
+  }
+
+  #contact .contact-content {
+    padding: 30px;
+    box-shadow: 0 0 30px black;
+  }
+
+  #contact .contact-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  #contact .contact-content p {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+  }
+
+  .form-input {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .form-btn {
+    padding: 14px;
+    font-size: 1.1rem;
+  }
+
+  .social-icons a {
+    font-size: 1.6rem;
+  }
+
+  .contact-footer p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 901px) and (max-width: 1200px) {
+  #contact {
+    padding: 30px 15px;
+  }
+
+  #contact .contact-content {
+    padding: 35px;
+    box-shadow: 0 0 35px black;
+  }
+
+  #contact .contact-content h1 {
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+    letter-spacing: 1.7px;
+  }
+
+  #contact .contact-content p {
+    font-size: 1.15rem;
+    margin-bottom: 38px;
+  }
+
+  .form-input {
+    padding: 14px;
+    font-size: 1.05rem;
+  }
+
+  .form-btn {
+    padding: 15px;
+    font-size: 1.15rem;
+  }
+
+  .social-icons a {
+    font-size: 1.7rem;
+  }
+
+  .contact-footer p {
+    font-size: 1rem;
+  }
+}
+
+/* Extra-large screens (large desktops) */
+@media (min-width: 1201px) {
+  #contact {
+    padding: 40px 20px;
+  }
+
+  #contact .contact-content {
+    padding: 40px;
+    box-shadow: 0 0 40px black;
+  }
+
+  #contact .contact-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+  }
+
+  #contact .contact-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+
+  .form-input {
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+
+  .form-btn {
+    padding: 16px;
+    font-size: 1.2rem;
+  }
+
+  .social-icons a {
+    font-size: 1.8rem;
+  }
+
+  .contact-footer p {
+    font-size: 1rem;
   }
 }
