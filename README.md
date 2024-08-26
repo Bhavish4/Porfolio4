@@ -12,7 +12,6 @@ Welcome to my portfolio website! This project showcases my skills and projects u
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Deployment](#deployment)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -74,12 +73,6 @@ You can use this project as a template to create your own portfolio. Feel free t
 ├── LICENSE           # License file
 └── README.md         # Project README file
 ```
-
-## Deployment
-
-This project is live at this [site](https://bhavish4.github.io/Porfolio4/).
-
-
 ## Contributing
 
 Contributions are welcome! If you have suggestions or improvements, feel free to fork this repository, make your changes, and submit a pull request.
