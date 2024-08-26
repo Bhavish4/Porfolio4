@@ -64,3 +64,31 @@ function hamburg() {
     });
   });
   
+
+//----------------------contact form--------------------//
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Perform the form submission using Fetch API
+  fetch(this.action, {
+    method: this.method,
+    body: new FormData(this)
+  })
+  .then(response => {
+    if (response.ok) {
+      // Reset the form fields
+      this.reset();
+
+      // Hide the form and display the success message
+      document.getElementById('formContainer').classList.add('hidden');
+      document.getElementById('formSuccessMessage').classList.remove('hidden');
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Something went wrong. Please try again.');
+  });
+});
