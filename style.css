@@ -7,15 +7,15 @@
   scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 10px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background-color: rgba(255, 255, 255, 5.96);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: rgb(255, 3, 3);
 }
 
@@ -32,7 +32,12 @@ nav {
   position: fixed; /* Ensures the navbar stays fixed at the top */
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8); /* Adds background color for better visibility */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Adds background color for better visibility */
   z-index: 1000; /* Ensures the navbar is always on top */
   display: flex;
   justify-content: space-between;
@@ -188,30 +193,27 @@ section {
 }
 
 .content button {
-  display: inline-block; /* Changed to inline-block for better control over width */
-  padding: 10px 20px;
+  width: 50%;
+  height: 6vh;
+  margin: 30px;
   background-color: rgb(211, 3, 3);
   color: white;
   border: none;
   outline: none;
-  font-size: 1.2rem;
+  font-size: 120%;
   font-weight: 700;
   border-radius: 5px;
   transition: 0.2s linear;
-  white-space: nowrap; /* Prevents text wrapping */
-  margin-top: 30px; /* Adjust margin as needed */
-  text-align: center; /* Ensure text is centered */
 }
 
 .content button:hover {
-  transform: scale(1.1);
+  scale: 1.1;
   color: rgb(211, 3, 3);
   border: 2px solid rgb(211, 3, 3);
   background-color: transparent;
   font-weight: 700;
   box-shadow: 0 0 40px 5px rgb(211, 3, 3);
 }
-
 
 .main-container .image {
   width: 400px;
@@ -261,7 +263,12 @@ section {
   max-width: 1800px; /* Increase the max-width to make the about section wider */
   width: 100%;
   padding: 50px;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background for content */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Semi-transparent black background for content */
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -446,7 +453,6 @@ section {
     opacity: 1;
   }
 }
-
 
 /* Example skill level percentages (adjust accordingly) */
 .skill[data-skill="html"] .progress-bar span {
@@ -718,7 +724,8 @@ section {
   color: white;
   font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
   text-transform: uppercase;
 }
 
@@ -738,7 +745,6 @@ section {
   color: green;
   animation: fadeIn 1s ease-in-out;
 }
-
 
 .social-icons {
   margin-top: 10px;
@@ -797,6 +803,29 @@ section {
   }
 }
 
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Style for CAPTCHA box */
+#recaptchaContainer {
+  margin-top: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* Transition when CAPTCHA becomes visible */
+#recaptchaContainer.visible {
+  display: block;
+  opacity: 1;
+}
+
 /*-------------------------------------------------------HOME-------------------------------------------------*/
 
 /* Responsive Adjustments */
@@ -853,41 +882,19 @@ section {
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; /* Center text inside the content */
-  }
-
-  .main-container .content {
-    width: 100%; /* Make content full width */
-    text-align: center; /* Center text inside the content */
-  }
-
-  .main-container .image {
-    margin-top: 20px; /* Add some margin on top of the image */
-  }
-
-  .content button {
-    display: block;
-    margin: 30px auto; /* Center the button */
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .skills-container {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Adjust to 2 skills per row on medium screens */
   }
 }
 
-/* For mobile devices */
-@media (max-width: 768px) {
-  .main-container {
-    flex-direction: column-reverse; /* Reverses the order of the content */
-  }
-
-  .main-container .content {
-    text-align: center; /* Centers the content */
-  }
-
-  .content button {
-    margin: 20px auto; /* Centers the button */
+@media (max-width: 576px) {
+  .skills-container {
+    grid-template-columns: 1fr; /* Adjust to 1 skill per row on small screens */
   }
 }
 
@@ -985,7 +992,10 @@ section {
   }
 
   .service-tiles {
-    grid-template-columns: repeat(3, 1fr); /* Three columns for extra large devices */
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* Three columns for extra large devices */
     gap: 25px;
   }
 }
@@ -1009,7 +1019,10 @@ section {
   }
 
   .service-tiles {
-    grid-template-columns: repeat(4, 1fr); /* Four columns for extra extra large devices */
+    grid-template-columns: repeat(
+      4,
+      1fr
+    ); /* Four columns for extra extra large devices */
     gap: 30px;
   }
 }
