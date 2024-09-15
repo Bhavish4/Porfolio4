@@ -9,8 +9,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="./assetes/csss/style.css" />
+    <script
+      src="https://www.google.com/recaptcha/api.js?onload=renderRecaptcha&render=explicit"
+      async
+      defer
+    ></script>
 
     <title>Portfolio</title>
   </head>
@@ -145,7 +149,7 @@
           </div>
         </div>
         <div class="image" data-aos="zoom-in" data-aos-duration="3000">
-          <img src="./perfil2.png" alt="" />
+          <img src="./assetes/img/perfil2.png" alt="" />
         </div>
       </div>
     </section>
@@ -179,7 +183,7 @@
             >
               <div class="service-icon-box">
                 <img
-                  src="./icon-design.svg"
+                  src="./assetes/img/icon-design.svg"
                   alt="design icon"
                   width="40"
                 />
@@ -201,7 +205,7 @@
             >
               <div class="service-icon-box">
                 <img
-                  src="./icon-dev.svg"
+                  src="./assetes/img/icon-dev.svg"
                   alt="Web development icon"
                   width="40"
                 />
@@ -223,7 +227,7 @@
             >
               <div class="service-icon-box">
                 <img
-                  src="./icon-app.svg"
+                  src="./assetes/img/icon-app.svg"
                   alt="mobile app icon"
                   width="40"
                 />
@@ -244,7 +248,7 @@
             >
               <div class="service-icon-box">
                 <img
-                  src="./icon-photo.svg"
+                  src="./assetes/img/icon-photo.svg"
                   alt="camera icon"
                   width="40"
                 />
@@ -421,11 +425,7 @@
                 oninput="checkMessage()"
               ></textarea>
             </div>
-            <div
-              class="g-recaptcha hidden"
-              id="recaptchaContainer"
-              data-sitekey="6Lcf_zIqAAAAAK4opU_tzaphNx9ufUNlkHaJlMCd"
-            ></div>
+            <div class="g-recaptcha" id="recaptchaContainer" hidden></div>
             <input
               type="checkbox"
               name="botcheck"
@@ -472,6 +472,6 @@
       AOS.init({ offset: 0 });
     </script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script src="./script.js"></script>
+    <script src="./assetes/js/script.js"></script>
   </body>
 </html>
