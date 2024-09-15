@@ -116,27 +116,42 @@ document
 
 //--------------reCAPTCHA------------------//
 
-  function checkMessage() {
-    const message = document.getElementById("message").value.trim();
-    const recaptchaContainer = document.getElementById("recaptchaContainer");
+ document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();  // Prevent form from submitting immediately
 
-    if (message.length > 0) {
-      recaptchaContainer.removeAttribute("hidden");
-      if (!recaptchaContainer.hasChildNodes()) {
-        grecaptcha.render('recaptchaContainer', {
-          'sitekey': '6Lf4vUQqAAAAACcPnqZYOkx1grrZV2y7AoUj--ci'
-        });
-      }
-    } else {
-      recaptchaContainer.setAttribute("hidden", "true");
-    }
-  }
+  grecaptcha.ready(function () {
+    grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' }).then(function (token) {
+      // Set the reCAPTCHA token in a hidden field if needed (optional)
+      // document.getElementById('recaptchaToken').value = token;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // Add reCAPTCHA script dynamically
-    const script = document.createElement('script');
-    script.src = "https://www.google.com/recaptcha/api.js";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
+      // Submit the form after token is received
+      document.getElementById('contactForm').submit();
+    });
   });
+});
+
+function checkMessage() {
+  const message = document.getElementById("message").value.trim();
+  const recaptchaContainer = document.getElementById("recaptchaContainer");
+
+  if (message.length > 0) {
+    recaptchaContainer.removeAttribute("hidden");
+    if (!recaptchaContainer.hasChildNodes()) {
+      grecaptcha.render('recaptchaContainer', {
+        'sitekey': '6Lf4vUQqAAAAACcPnqZYOkx1grrZV2y7AoUj--ci'
+      });
+    }
+  } else {
+    recaptchaContainer.setAttribute("hidden", "true");
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Dynamically load the reCAPTCHA script
+  const script = document.createElement('script');
+  script.src = "https://www.google.com/recaptcha/api.js";
+  script.async = true;
+  script.defer = true;
+  document.body.appendChild(script);
+});
+
