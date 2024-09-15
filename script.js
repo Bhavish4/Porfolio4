@@ -121,8 +121,8 @@ function checkMessage() {
   const recaptchaContainer = document.getElementById("recaptchaContainer");
 
   if (message.length > 0) {
-    recaptchaContainer.classList.add("visible");
+    recaptchaContainer.removeAttribute("hidden");
   } else {
-    recaptchaContainer.classList.remove("visible");
+    recaptchaContainer.setAttribute("hidden", "true");
   }
 }
