@@ -116,6 +116,16 @@ document
 
 //--------------reCAPTCHA------------------//
 
+function renderRecaptcha() {
+  grecaptcha.render("recaptchaContainer", {
+    sitekey: "6Lcf_zIqAAAAAK4opU_tzaphNx9ufUNlkHaJlMCd",
+  });
+}
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  renderRecaptcha();
+});
+
 function checkMessage() {
   const message = document.getElementById("message").value.trim();
   const recaptchaContainer = document.getElementById("recaptchaContainer");
