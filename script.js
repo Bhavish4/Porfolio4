@@ -136,3 +136,15 @@ function checkMessage() {
     recaptchaContainer.setAttribute("hidden", "true");
   }
 }
+
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  grecaptcha.ready(function () {
+    grecaptcha
+      .execute("6Lf4vUQqAAAAACcPnqZYOkx1grrZV2y7AoUj--ci", { action: "submit" })
+      .then(function (token) {
+        document.getElementById("contactForm").submit();
+      });
+  });
+});
