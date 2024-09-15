@@ -116,35 +116,27 @@ document
 
 //--------------reCAPTCHA------------------//
 
-function renderRecaptcha() {
-  grecaptcha.render("recaptchaContainer", {
-    sitekey: "6Lcf_zIqAAAAAK4opU_tzaphNx9ufUNlkHaJlMCd",
-  });
-}
+  function checkMessage() {
+    const message = document.getElementById("message").value.trim();
+    const recaptchaContainer = document.getElementById("recaptchaContainer");
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  renderRecaptcha();
-});
-
-function checkMessage() {
-  const message = document.getElementById("message").value.trim();
-  const recaptchaContainer = document.getElementById("recaptchaContainer");
-
-  if (message.length > 0) {
-    recaptchaContainer.removeAttribute("hidden");
-  } else {
-    recaptchaContainer.setAttribute("hidden", "true");
+    if (message.length > 0) {
+      recaptchaContainer.removeAttribute("hidden");
+      if (!recaptchaContainer.hasChildNodes()) {
+        grecaptcha.render('recaptchaContainer', {
+          'sitekey': '6Lf4vUQqAAAAACcPnqZYOkx1grrZV2y7AoUj--ci'
+        });
+      }
+    } else {
+      recaptchaContainer.setAttribute("hidden", "true");
+    }
   }
-}
 
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  grecaptcha.ready(function () {
-    grecaptcha
-      .execute("6Lf4vUQqAAAAACcPnqZYOkx1grrZV2y7AoUj--ci", { action: "submit" })
-      .then(function (token) {
-        document.getElementById("contactForm").submit();
-      });
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add reCAPTCHA script dynamically
+    const script = document.createElement('script');
+    script.src = "https://www.google.com/recaptcha/api.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
   });
-});
