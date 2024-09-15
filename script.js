@@ -120,7 +120,7 @@ document
   e.preventDefault();  // Prevent form from submitting immediately
 
   grecaptcha.ready(function () {
-    grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' }).then(function (token) {
+    grecaptcha.execute('6Lf4vUQqAAAAACcPnqZYOkx1grrZV2y7AoUj--ci', { action: 'submit' }).then(function (token) {
       // Set the reCAPTCHA token in a hidden field if needed (optional)
       // document.getElementById('recaptchaToken').value = token;
 
