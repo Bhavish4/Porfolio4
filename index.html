@@ -10,11 +10,7 @@
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./style.css" />
-    <script
-      src="https://www.google.com/recaptcha/api.js?onload=renderRecaptcha&render=explicit"
-      async
-      defer
-    ></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <title>Portfolio</title>
   </head>
@@ -22,8 +18,8 @@
     <!----------------------------------------------NAVBAR------------------------------------------------------->
     <nav>
       <div class="nav-container">
-        <div class="logo" data-aos="zoom-in" data-aos-duration="1500"><a href="#home">Ponugumatla <span>Bhavish</span></a>
-          
+        <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+          Ponugumatla <span>Bhavish</span>
         </div>
         <div class="links">
           <div
@@ -425,13 +421,10 @@
                 oninput="checkMessage()"
               ></textarea>
             </div>
-            <div class="g-recaptcha" id="recaptchaContainer" hidden></div>
-            <input
-              type="checkbox"
-              name="botcheck"
-              class="hidden"
-              style="display: none"
-            />
+            <div
+              class="g-recaptcha"
+              data-sitekey="6Lf4vUQqAAAAACcPnqZYOkx1grrZV2y7AoUj--ci"
+            ></div>
             <button class="form-btn" type="submit">
               <span>Send Message</span>
             </button>
