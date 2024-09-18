@@ -120,7 +120,7 @@ document
   e.preventDefault();  // Prevent form from submitting immediately
 
   grecaptcha.ready(function () {
-    grecaptcha.execute('6Lf4vUQqAAAAACcPnqZYOkx1grrZV2y7AoUj--ci', { action: 'submit' }).then(function (token) {
+    grecaptcha.execute('6Lcf_zIqAAAAAK4opU_tzaphNx9ufUNlkHaJlMCd', { action: 'submit' }).then(function (token) {
       // Set the reCAPTCHA token in a hidden field if needed (optional)
       // document.getElementById('recaptchaToken').value = token;
 
@@ -138,7 +138,7 @@ function checkMessage() {
     recaptchaContainer.removeAttribute("hidden");
     if (!recaptchaContainer.hasChildNodes()) {
       grecaptcha.render('recaptchaContainer', {
-        'sitekey': '6Lf4vUQqAAAAACcPnqZYOkx1grrZV2y7AoUj--ci'
+        'sitekey': '6Lcf_zIqAAAAAK4opU_tzaphNx9ufUNlkHaJlMCd'
       });
     }
   } else {
