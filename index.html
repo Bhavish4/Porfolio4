@@ -288,26 +288,36 @@
       <h1>Contact Me</h1>
       <p>Feel free to drop me a message. I would love to hear from you!</p>
       <div class="contact-form" id="formContainer">
-        <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true" id="contactForm">
-          <p class="hidden">
-            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-          </p>
-          <div class="input-wrapper">
-            <label for="fullname" class="sr-only">Full Name</label>
-            <input type="text" name="fullname" id="fullname" class="form-input" placeholder="Your Full Name" required />
+        <form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  id="contactForm"
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <!-- Honeypot field -->
+  <p class="hidden">
+    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+  </p>
 
-            <label for="email" class="sr-only">Email Address</label>
-            <input type="email" name="email" id="email" class="form-input" placeholder="Your Email Address" required />
+  <div class="input-wrapper">
+    <label for="fullname" class="sr-only">Full Name</label>
+    <input type="text" name="fullname" id="fullname" class="form-input" placeholder="Your Full Name" required />
+    
+    <label for="email" class="sr-only">Email Address</label>
+    <input type="email" name="email" id="email" class="form-input" placeholder="Your Email Address" required />
+    
+    <label for="message" class="sr-only">Message</label>
+    <textarea name="message" id="message" class="form-input" placeholder="Your Message" required oninput="checkMessage()"></textarea>
+  </div>
 
-            <label for="message" class="sr-only">Message</label>
-            <textarea name="message" id="message" class="form-input" placeholder="Your Message" required
-              oninput="checkMessage()"></textarea>
-          </div>
-          <div class="g-recaptcha" id="recaptchaContainer" hidden></div>
-          <button class="form-btn" type="submit">
-            <span>Send Message</span>
-          </button>
-        </form>
+  <div class="g-recaptcha" id="recaptchaContainer" hidden></div>
+  <button class="form-btn" type="submit">
+    <span>Send Message</span>
+  </button>
+</form>
+
       </div>
       <div id="formSuccessMessage" class="hidden">Your message has been sent successfully!</div>
       <div id="newFormContainer" class="hidden">[New form content here]</div>
