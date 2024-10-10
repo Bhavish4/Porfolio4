@@ -74,37 +74,30 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 //----------------------contact form--------------------//
 
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent default form submission to control the flow
+ document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission to handle it via JavaScript
 
-  const form = event.target;
+    const form = event.target;
+    const formData = new FormData(form);
 
-  // Perform form validation (optional)
-  const formData = new FormData(form);
-  const email = formData.get("email");
-  const message = formData.get("message");
-
-  if (!email || !message) {
-    alert("Please fill in all the fields.");
-    return;
-  }
-
-  // Submit form using Fetch API for Netlify handling
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString(),
-  })
+    // Send the form data using Fetch API for Netlify form handling
+    fetch(form.action, {
+      method: form.method,
+      body: new URLSearchParams(formData).toString(),
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
     .then((response) => {
       if (response.ok) {
-        // Reset the form fields
+        // Reset the form
         form.reset();
-
-        // Hide the form and show success message
+        
+        // Show success message and hide the form
         document.getElementById("formContainer").classList.add("hidden");
         document.getElementById("formSuccessMessage").classList.remove("hidden");
 
-        // Display new form or do further actions after a delay
+        // Optionally, show a new form after a delay
         setTimeout(() => {
           document.getElementById("formSuccessMessage").classList.add("hidden");
           document.getElementById("newFormContainer").classList.remove("hidden");
@@ -117,4 +110,21 @@ document.getElementById("contactForm").addEventListener("submit", function (even
       console.error("Form submission error:", error);
       alert("Form submission failed. Please check your connection and try again.");
     });
-});
+  });
+
+  // Function to show reCAPTCHA when the message field has more than 100 characters
+  function checkMessage() {
+    const message = document.getElementById("message").value;
+    const recaptchaContainer = document.getElementById("recaptchaContainer");
+
+    if (message.length > 100) {
+      recaptchaContainer.hidden = false;
+      if (!recaptchaContainer.hasChildNodes()) {
+        grecaptcha.render("recaptchaContainer", {
+          sitekey: "6Lf4vUQqAAAAACcPnqZYOkx1grrZV2y7AoUj--ci" // Replace with your actual reCAPTCHA site key
+        });
+      }
+    } else {
+      recaptchaContainer.hidden = true;
+    }
+  }
