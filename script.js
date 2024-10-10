@@ -74,51 +74,47 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 //----------------------contact form--------------------//
 
-document
-  .getElementById("contactForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent the default form submission
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent default form submission to control the flow
 
-    // Perform the form submission using Fetch API
-    fetch(this.action, {
-      method: this.method,
-      body: new FormData(this),
-    })
-      .then((response) => {
-        if (response.ok) {
-          // Reset the form fields
-          this.reset();
+  const form = event.target;
 
-          // Hide the form and display the success message
-          document.getElementById("formContainer").classList.add("hidden");
-          document
-            .getElementById("formSuccessMessage")
-            .classList.remove("hidden");
+  // Perform form validation (optional)
+  const formData = new FormData(form);
+  const email = formData.get("email");
+  const message = formData.get("message");
 
-          // After 2 seconds, hide the success message and show the new form
-          setTimeout(() => {
-            document
-              .getElementById("formSuccessMessage")
-              .classList.add("hidden");
-            document
-              .getElementById("newFormContainer")
-              .classList.remove("hidden");
-          }, 2000);
-        }
-      })
-      .catch((error) => {
-        console.error("Form submission error:", error);
-      });
-  });
-
-function checkMessage() {
-  const message = document.getElementById("message").value;
-  const recaptchaContainer = document.getElementById("recaptchaContainer");
-
-  // Show Recaptcha if the message length is greater than 100
-  if (message.length > 100) {
-    recaptchaContainer.classList.add("visible");
-  } else {
-    recaptchaContainer.classList.remove("visible");
+  if (!email || !message) {
+    alert("Please fill in all the fields.");
+    return;
   }
-}
+
+  // Submit form using Fetch API for Netlify handling
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then((response) => {
+      if (response.ok) {
+        // Reset the form fields
+        form.reset();
+
+        // Hide the form and show success message
+        document.getElementById("formContainer").classList.add("hidden");
+        document.getElementById("formSuccessMessage").classList.remove("hidden");
+
+        // Display new form or do further actions after a delay
+        setTimeout(() => {
+          document.getElementById("formSuccessMessage").classList.add("hidden");
+          document.getElementById("newFormContainer").classList.remove("hidden");
+        }, 2000);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    })
+    .catch((error) => {
+      console.error("Form submission error:", error);
+      alert("Form submission failed. Please check your connection and try again.");
+    });
+});
