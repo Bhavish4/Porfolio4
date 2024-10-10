@@ -103,55 +103,22 @@ document
             document
               .getElementById("newFormContainer")
               .classList.remove("hidden");
-          }, 2000); // 2 seconds delay
-        } else {
-          alert("Something went wrong. Please try again.");
+          }, 2000);
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
-        alert("Something went wrong. Please try again.");
+        console.error("Form submission error:", error);
       });
   });
-
-//--------------reCAPTCHA------------------//
-
- document.getElementById('contactForm').addEventListener('submit', function (e) {
-  e.preventDefault();  // Prevent form from submitting immediately
-
-  grecaptcha.ready(function () {
-    grecaptcha.execute('6Lcf_zIqAAAAAK4opU_tzaphNx9ufUNlkHaJlMCd', { action: 'submit' }).then(function (token) {
-      // Set the reCAPTCHA token in a hidden field if needed (optional)
-      // document.getElementById('recaptchaToken').value = token;
-
-      // Submit the form after token is received
-      document.getElementById('contactForm').submit();
-    });
-  });
-});
 
 function checkMessage() {
-  const message = document.getElementById("message").value.trim();
+  const message = document.getElementById("message").value;
   const recaptchaContainer = document.getElementById("recaptchaContainer");
 
-  if (message.length > 0) {
-    recaptchaContainer.removeAttribute("hidden");
-    if (!recaptchaContainer.hasChildNodes()) {
-      grecaptcha.render('recaptchaContainer', {
-        'sitekey': '6Lcf_zIqAAAAAK4opU_tzaphNx9ufUNlkHaJlMCd'
-      });
-    }
+  // Show Recaptcha if the message length is greater than 100
+  if (message.length > 100) {
+    recaptchaContainer.classList.add("visible");
   } else {
-    recaptchaContainer.setAttribute("hidden", "true");
+    recaptchaContainer.classList.remove("visible");
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Dynamically load the reCAPTCHA script
-  const script = document.createElement('script');
-  script.src = "https://www.google.com/recaptcha/api.js";
-  script.async = true;
-  script.defer = true;
-  document.body.appendChild(script);
-});
-
