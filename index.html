@@ -284,59 +284,74 @@
   <!----------------------------------------------contact----------------------------------------------------->
 
   <section id="contact">
-    <div class="contact-content">
-      <h1>Contact Me</h1>
-      <p>Feel free to drop me a message. I would love to hear from you!</p>
-      <div class="contact-form" id="formContainer">
-        <form
-  name="contact"
-  method="POST"
-  data-netlify="true"
-  data-netlify-honeypot="bot-field"
-  id="contactForm"
->
-  <input type="hidden" name="form-name" value="contact" />
-  <!-- Honeypot field -->
-  <p class="hidden">
-    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-  </p>
-
-  <div class="input-wrapper">
-    <label for="fullname" class="sr-only">Full Name</label>
-    <input type="text" name="fullname" id="fullname" class="form-input" placeholder="Your Full Name" required />
+  <div class="contact-content">
+    <h1>Contact Me</h1>
+    <p>Feel free to drop me a message. I would love to hear from you!</p>
     
-    <label for="email" class="sr-only">Email Address</label>
-    <input type="email" name="email" id="email" class="form-input" placeholder="Your Email Address" required />
-    
-    <label for="message" class="sr-only">Message</label>
-    <textarea name="message" id="message" class="form-input" placeholder="Your Message" required oninput="checkMessage()"></textarea>
-  </div>
+    <!-- Contact Form -->
+    <div class="contact-form" id="formContainer">
+      <form
+        name="contact"
+        action="/pages/success"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        id="contactForm"
+      >
+        <!-- Netlify honeypot field (invisible to users) -->
+        <p class="hidden">
+          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+        </p>
+        
+        <!-- Form fields -->
+        <div class="input-wrapper">
+          <label for="fullname" class="sr-only">Full Name</label>
+          <input type="text" name="fullname" id="fullname" class="form-input" placeholder="Your Full Name" required />
+          
+          <label for="email" class="sr-only">Email Address</label>
+          <input type="email" name="email" id="email" class="form-input" placeholder="Your Email Address" required />
+          
+          <label for="message" class="sr-only">Message</label>
+          <textarea name="message" id="message" class="form-input" placeholder="Your Message" required oninput="checkMessage()"></textarea>
+        </div>
 
-  <div class="g-recaptcha" id="recaptchaContainer" hidden></div>
-  <button class="form-btn" type="submit">
-    <span>Send Message</span>
-  </button>
-</form>
-
-      </div>
-      <div id="formSuccessMessage" class="hidden">Your message has been sent successfully!</div>
-      <div id="newFormContainer" class="hidden">[New form content here]</div>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/ponugumatla-bhavish/" class="social-icon">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/Bhavish4" class="social-icon">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://www.instagram.com/__.bunny_04.__/" class="social-icon">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fa-brands fa-discord"></i>
-        </a>
-      </div>
+        <!-- reCAPTCHA -->
+        <div class="g-recaptcha" id="recaptchaContainer" hidden></div>
+        
+        <!-- Submit button -->
+        <button class="form-btn" type="submit">
+          <span>Send Message</span>
+        </button>
+      </form>
     </div>
-  </section>
+
+    <!-- Social icons -->
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/ponugumatla-bhavish/" class="social-icon">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/Bhavish4" class="social-icon">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://www.instagram.com/__.bunny_04.__/" class="social-icon">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="#" class="social-icon">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+    </div>
+
+    <!-- Success message -->
+    <div id="formSuccessMessage" class="hidden">
+      <p>Thank you! Your message has been successfully sent.</p>
+    </div>
+    
+    <!-- New form container (if needed) -->
+    <div id="newFormContainer" class="hidden">
+      <!-- Your new form content here -->
+    </div>
+  </div>
+</section>
 
   <!-------------------------------------------Footer Section---------------------------------------->
   <footer class="contact-footer">
