@@ -74,7 +74,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 //----------------------contact form--------------------//
 
- document.getElementById("contactForm").addEventListener("submit", function (event) {
+document.getElementById("contactForm").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent default form submission to handle it via JavaScript
 
     const form = event.target;
@@ -93,15 +93,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         // Reset the form
         form.reset();
         
-        // Show success message and hide the form
+        // Show the success message and hide the form
         document.getElementById("formContainer").classList.add("hidden");
         document.getElementById("formSuccessMessage").classList.remove("hidden");
-
-        // Optionally, show a new form after a delay
-        setTimeout(() => {
-          document.getElementById("formSuccessMessage").classList.add("hidden");
-          document.getElementById("newFormContainer").classList.remove("hidden");
-        }, 2000);
+        
+        // Remove this part: no new form will appear, only the "Thank you" message
       } else {
         alert("Something went wrong. Please try again.");
       }
