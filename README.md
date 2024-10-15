@@ -2,7 +2,7 @@
 
 ![GitHub license](https://img.shields.io/github/license/Bhavish4/Portfolio)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/64402d7d-da79-46f0-b2f9-0efdce773fb2/deploy-status)](https://app.netlify.com/sites/ponugumatla-bhavish/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/28969669-a354-48a3-8788-b24172aa5b71/deploy-status)](https://app.netlify.com/sites/ponugumatla-bhavish,app/)
 
 Welcome to my portfolio website! This project showcases my skills and projects using HTML, CSS, and JavaScript.
 
